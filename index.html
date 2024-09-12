@@ -36,8 +36,8 @@
             event.preventDefault(); // Impedisce l'invio del form
 
             // Ottieni i valori dei campi di input
-            const u = document.getElementById('u').value;
-            const s = document.getElementById('s').value;
+            const u = document.getElementById('u').value.toLowerCase();
+            const s = document.getElementById('s').value.toLowerCase();
 
             // Concatena i valori
             const concatenatedValues = s + u;
