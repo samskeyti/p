@@ -6,24 +6,23 @@
     <title>P</title>
     <style>
       input{
-        font-size: 2rem;
+        font-size: 2rem;  
       }
+        body{
+            padding: 1rem;
+        }
     </style>
 </head>
 <body>
     <form id="hashForm">
-        <label for="passwordInput">Password Input:</label>
-        <input type="password" id="passwordInput" name="passwordInput" required><br><br>
+        <input type="password" id="s" name="s" required>
 
-        <label for="textInput">Text Input:</label>
-        <input type="text" id="textInput" name="textInput" required><br><br>
+        <input type="text" id="u" name="u" required>
 
-        
-        <input type="submit" value="Submit">
+        <input type="submit" value="OK">
     </form>
 
-    <label for="hashOutput">Hash Output:</label>
-    <input type="text" id="hashOutput" name="hashOutput" readonly><br><br>
+    <input type="text" id="hashOutput" name="hashOutput" readonly>
 
     <!-- Include the CryptoJS library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
@@ -32,17 +31,17 @@
             event.preventDefault(); // Impedisce l'invio del form
 
             // Ottieni i valori dei campi di input
-            const textInput = document.getElementById('textInput').value;
-            const passwordInput = document.getElementById('passwordInput').value;
+            const u = document.getElementById('u').value;
+            const s = document.getElementById('s').value;
 
             // Concatena i valori
-            const concatenatedValues = passwordInput + textInput;
+            const concatenatedValues = s + u;
 
             // Calcola l'hash (SHA-256)
             const hash = CryptoJS.SHA256(concatenatedValues).toString(CryptoJS.enc.Hex);
 
             // Scrivi l'hash nel campo di output
-            document.getElementById('hashOutput').value = hash;
+            document.getElementById('hashOutput').value = hash.substring(0,10) + '+' + u.charAt(0).toUpperCase();
         });
     </script>
 </body>
