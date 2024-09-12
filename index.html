@@ -48,6 +48,19 @@
             // Scrivi l'hash nel campo di output
             document.getElementById('hashOutput').value = hash.substring(0,10) + '+' + u.charAt(0).toUpperCase();
         });
+
+        document.getElementById('hashOutput').addEventListener('click', function() {
+            // Ottieni il valore del campo di input
+            const inputValue = this.value;
+
+            // Copia il valore negli appunti
+            navigator.clipboard.writeText(inputValue).then(function() {
+                this.style.backgroundColor = 'yellow'
+                console.log('Testo copiato negli appunti: ' + inputValue);
+            }).catch(function(err) {
+                console.error('Errore durante la copia negli appunti: ', err);
+            });
+        });
     </script>
 </body>
 </html>
