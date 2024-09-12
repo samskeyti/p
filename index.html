@@ -7,21 +7,26 @@
     <style>
       input{
         font-size: 2rem;  
+          padding: 0.5rem;
+          width: 90%;
+          margin: 0.5rem;
+          font-family: monospace;
       }
         body{
             padding: 1rem;
+            
         }
     </style>
 </head>
 <body>
     <form id="hashForm">
-        <input type="password" id="s" name="s" required>
+        <input type="password" id="s" name="s" required><br/>
 
-        <input type="text" id="u" name="u" required>
+        <input type="text" id="u" name="u" required><br/>
 
-        <input type="submit" value="OK">
+        <input type="submit" value="OK"><br/>
     </form>
-
+    <br/>
     <input type="text" id="hashOutput" name="hashOutput" readonly>
 
     <!-- Include the CryptoJS library -->
