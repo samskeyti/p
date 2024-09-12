@@ -50,12 +50,13 @@
         });
 
         document.getElementById('hashOutput').addEventListener('click', function() {
+            const input = this
             // Ottieni il valore del campo di input
             const inputValue = this.value;
 
             // Copia il valore negli appunti
             navigator.clipboard.writeText(inputValue).then(function() {
-                this.style.backgroundColor = 'yellow'
+                input.style.backgroundColor = 'yellow'
                 console.log('Testo copiato negli appunti: ' + inputValue);
             }).catch(function(err) {
                 console.error('Errore durante la copia negli appunti: ', err);
