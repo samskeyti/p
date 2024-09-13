@@ -46,10 +46,10 @@
             document.getElementById('o').value = hash.substring(0,10) + '+' + u.charAt(0).toUpperCase();
             document.getElementById('o').style.backgroundColor = 'transparent'
         }
-        document.getElementById('s').addEventListener('change', function(event) {
+        document.getElementById('s').addEventListener('input', function(event) {
             hash()
         });
-        document.getElementById('u').addEventListener('change', function(event) {
+        document.getElementById('u').addEventListener('input', function(event) {
             hash()
         });
 
