@@ -8,13 +8,13 @@
       input{
         font-size: 2rem;  
           padding: 0.5rem;
-          width: 90%;
+          width: 80%;
           margin: 0.5rem;
           font-family: monospace;
       }
         body{
             padding: 1rem;
-            
+            text-align: center;
         }
     </style>
 </head>
@@ -24,20 +24,17 @@
 
         <input type="text" id="u" name="u" required><br/>
 
-        <input type="submit" value="OK"><br/>
     </form>
-    <br/>
-    <input type="text" id="hashOutput" name="hashOutput" readonly>
+    <hr/>
+    <input type="text" id="o" name="o" readonly>
 
     <!-- Include the CryptoJS library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
     <script>
-        document.getElementById('hashForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Impedisce l'invio del form
-
+        function hash(){
             // Ottieni i valori dei campi di input
-            const u = document.getElementById('u').value.toLowerCase();
-            const s = document.getElementById('s').value.toLowerCase();
+            const u = document.getElementById('u').value.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+            const s = document.getElementById('s').value.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
 
             // Concatena i valori
             const concatenatedValues = s + u;
@@ -46,7 +43,14 @@
             const hash = CryptoJS.SHA256(concatenatedValues).toString(CryptoJS.enc.Hex);
 
             // Scrivi l'hash nel campo di output
-            document.getElementById('hashOutput').value = hash.substring(0,10) + '+' + u.charAt(0).toUpperCase();
+            document.getElementById('o').value = hash.substring(0,10) + '+' + u.charAt(0).toUpperCase();
+            document.getElementById('o').style.backgroundColor = 'transparent'
+        }
+        document.getElementById('s').addEventListener('change', function(event) {
+            hash()
+        });
+        document.getElementById('u').addEventListener('change', function(event) {
+            hash()
         });
 
         document.getElementById('hashOutput').addEventListener('click', function() {
